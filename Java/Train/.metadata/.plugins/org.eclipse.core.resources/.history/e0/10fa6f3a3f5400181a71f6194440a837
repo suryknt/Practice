@@ -1,0 +1,85 @@
+package challange;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+public class Kvowels {
+	public static void main(String[] args) {
+		FastReader fr=new FastReader();
+		int t=fr.nextInt();
+		int n=fr.nextInt();
+		int k=fr.nextInt();
+		char[] s=fr.nextLine().toLowerCase().toCharArray();
+		int[][] dp=new int[5][n];
+		int[] visited=new int[256];
+		Arrays.fill(visited, -1);
+		Set<Character> vowels=new HashSet<Character>();
+		vowels.addAll(Arrays.asList('a','e','i','o','u'));
+		int curr_length=1;
+		int max_length=1;
+		int vowel_count=0;
+		if(vowels.contains(s[0])) {
+			visited[s[0]]=0;
+			vowel_count++;
+		}
+		for(int i=1;i<n;i++) {
+			if(vowels.contains(s[i])) {
+				if(visited[s[i]]==-1 || i-curr_length>visited[s[i]]) {
+					if(vowel_count<k) {
+						vowel_count++;
+						curr_length++;
+						visited[s[i]]=i;
+					}else {
+						visited[s[i]]=i;
+					}
+				}
+				else curr_length++;
+			}
+			else curr_length++;
+			max_length=Math.max(curr_length, max_length);
+		}
+		System.out.println(max_length);
+	}
+	
+	static class FastReader{
+		BufferedReader br;
+		StringTokenizer st;
+		
+		public FastReader() {
+			br=new BufferedReader(new InputStreamReader(System.in));
+		}
+		public String next() {
+			while(st==null || !st.hasMoreElements()) {
+				try {
+					st=new StringTokenizer(br.readLine());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+		int nextInt() {
+			return Integer.parseInt(next());
+		}
+		long nextLong() {
+			return Long.parseLong(next());
+		}
+		String nextLine() {
+			String ret="";
+			try {
+				ret=br.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ret;
+		}
+		
+		
+	}
+}

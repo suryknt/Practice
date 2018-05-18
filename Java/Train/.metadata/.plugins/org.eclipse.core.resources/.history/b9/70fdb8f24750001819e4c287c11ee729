@@ -1,0 +1,62 @@
+package challange;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class StringCompare {
+	public static void main(String[] args) {
+		FastReader fr=new FastReader();
+		int n=fr.nextInt();
+		int q=fr.nextInt();
+		char[] str1=fr.nextLine().toCharArray();
+		char[] str2=fr.nextLine().toCharArray();
+		
+		System.out.println();
+		
+	}
+	static public long getValue(char[] a, int n) {
+		long ret=0L;
+		int i=n-1;
+		int count=0;
+		while(i>=0) {
+			ret+=Math.pow(2, count)*Character.getNumericValue(a[i]);
+			count++;
+			i--;
+		}
+		return ret;
+	}
+	static class FastReader{
+		BufferedReader br;
+		StringTokenizer st;
+		
+		public FastReader() {
+			br=new BufferedReader(new InputStreamReader(System.in));
+		}
+		public String next() {
+			while(st==null || !st.hasMoreElements()) {
+				try {
+					st=new StringTokenizer(br.readLine());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+		int nextInt() {
+			return Integer.parseInt(next());
+		}
+		String nextLine() {
+			String str="";
+			try {
+				str= br.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return str;
+		}
+		
+	}
+}
