@@ -1,0 +1,17 @@
+{
+	"is_authenticated_user": "userAuthentication",
+	"session_id": "sessionId",
+	"start_page": "start", 
+	"end_page": "end", 
+	"status": "status", 
+	"event_name": "event", 
+	"browser_name": "browser", 
+	"device_screen_type": "deviceScreenType", 
+	"device_type": "deviceType", 
+	"device_os": "deviceOS", 
+	"performance.total_load_time": "totalLoadTime", 
+	"performance.event_performance_time": "performanceTime", 
+	"attribute.retailer_name|buy_online": "retailerName", 
+	"attribute.total_sales|buy_online":"saleAmount", 
+	"attribute.total_quantity|buy_online": "saleQuantity"
+}
