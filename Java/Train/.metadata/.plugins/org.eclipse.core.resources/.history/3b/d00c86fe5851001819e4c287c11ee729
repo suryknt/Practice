@@ -1,9 +1,0 @@
-
-public class PoisonousGas {
-	public static void main(String[] args) {
-		double n=Math.log(128)/Math.log(2);
-		System.out.println(n);
-		System.out.println(n-Math.floor(n)>0);
-		
-	}
-}
