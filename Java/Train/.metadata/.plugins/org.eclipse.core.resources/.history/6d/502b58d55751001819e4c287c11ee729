@@ -1,0 +1,6 @@
+
+public class PoisonousGas {
+	public static void main(String[] args) {
+		System.out.println(Math.log(64));
+	}
+}
